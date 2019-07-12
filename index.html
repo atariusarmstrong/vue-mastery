@@ -9,12 +9,22 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class='nav-bar'></div>
         <div id=app>
-            <h1>{{product}}</h1>
-            <h2>{{description}}</h2>
+            <div class="product">
+                <div class='product-image'>
+                    <!-- vue data binding -->
+                    <img v-bind:src="image" v-bind:alt="altText"/>
+                </div>
+                <div class='product-info'>
+                        <h1>{{product}}</h1>
+                        <h2>{{description}}</h2>
+                        <a :href="link">More products like this</a>
+                </div>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
         <script src="main.js" async defer></script>
