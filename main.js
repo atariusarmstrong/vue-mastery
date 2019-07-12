@@ -5,6 +5,9 @@ var app = new Vue ({
         description: "A nice comfy sock made from wool.",
         image: "./vmSocks-green-onWhite.jpg",
         altText: "A pair of socks",
-        link: "https://www.amazon.com/s?k=socks&ref=nb_sb_noss_1"
+        link: "https://www.amazon.com/s?k=socks&ref=nb_sb_noss_1",
+        inStock: true,
+        inventory: 0,
+        onSale: false
     }
 })
