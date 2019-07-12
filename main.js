@@ -8,6 +8,18 @@ var app = new Vue ({
         link: "https://www.amazon.com/s?k=socks&ref=nb_sb_noss_1",
         inStock: true,
         inventory: 0,
-        onSale: false
+        onSale: false,
+        details: ["80% cotton", "20% polyester", "Gender neutral"],
+        variants: [
+            {
+                variantId: 2234,
+                variantColor: 'green'
+            },
+            {
+                variantId: 2235,
+                variantColor: "blue"
+            }
+        ],
+        sizes: ["XS", "S", "M", "L", "XL", "XXL"]
     }
 })
