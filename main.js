@@ -55,15 +55,13 @@ Vue.component('product', {
                 </ul>
                 <a :href="link">More products like this</a>
 
-                <div class='cart'>
-                    <p>Cart({{cart}})</p>
-                </div>
+                
                 <button v-on:click="addToCart"
                     :disabled='!inStock'
                     :class="{disabledButton: !inStock}">Add to cart</button>
                 <button 
-                v-if="cart >= 1"
-                v-on:click='removeFromCart'>Remove From Cart</button>
+                    
+                    v-on:click='removeFromCart'>Remove From Cart</button>
             </div>
         </div>
     `,
@@ -97,14 +95,14 @@ Vue.component('product', {
     } ,
     methods: {
         addToCart() {
-            this.cart += 1
+            this.$emit('add-to-cart', this.variants[this.selectedVariant].variantId)
         },
         updateProduct(index) {
             this.selectedVariant = index
             console.log(this.selectedVariant)
         },
         removeFromCart() {
-            this.cart -= 1
+            this.$emit('remove-from-cart', this.variants[this.selectedVariant].variantId)
         }
     },
     computed: {
@@ -136,6 +134,15 @@ Vue.component('product', {
 var app = new Vue ({
     el: "#app",
     data: {
-        premium: true
+        premium: true,
+        cart: []
+    },
+    methods: {
+        updateCart(id) {
+            this.cart.push(id)
+        },
+        removeItem() {
+            this.cart.splice(1, 1)
+        }
     }
 })
